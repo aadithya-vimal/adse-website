@@ -311,7 +311,9 @@ export default function Home() {
                 <h3>{f.name}</h3>
                 <h4>{f.department}</h4>
                 <p>Specialization: {f.specialization}</p>
-                <button type="button" onClick={() => window.location.href = `/faculty?id=${f.id}`}>View</button>
+                <Link to={`/faculty?id=${f.id}`}>
+                  <button type="button">View</button>
+                </Link>
               </div>
             ))
           }

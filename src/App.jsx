@@ -7,6 +7,7 @@ import Caads from './pages/Caads'
 import FacultyDev from './pages/FacultyDev'
 import IndustrialVisit from './pages/IndustrialVisit'
 import ServiceLearning from './pages/ServiceLearning'
+import FacultyDetail from './pages/FacultyDetail'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/faculty-dev" element={<FacultyDev />} />
       <Route path="/industrial-visit" element={<IndustrialVisit />} />
       <Route path="/service-learning" element={<ServiceLearning />} />
+      <Route path="/faculty" element={<FacultyDetail />} />
     </Routes>
   )
 }
