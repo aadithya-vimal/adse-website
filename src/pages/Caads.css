@@ -1,0 +1,27 @@
+/* CAADS page - styles from caads.html inline */
+.caads-page { margin: 0; font-family: "Times New Roman", serif; color: #222; background: #f9f9f9; }
+
+/* Hero */
+.caads-hero { background: url('/assets/caads-banner.jpg') center/cover no-repeat; height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; color: #fff; }
+.caads-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+.caads-hero-content { position: relative; z-index: 1; max-width: 800px; }
+.caads-hero h1 { font-size: 60px; margin-bottom: 15px; letter-spacing: 2px; }
+.caads-hero p { font-size: 20px; line-height: 1.5; }
+
+/* About CAADS */
+.about-caads-section { padding: 80px 10%; background: #fff; }
+.about-caads-section h2 { font-size: 60px; text-align: center; margin-bottom: 50px; font-family: 'Times New Roman', serif; }
+.about-caads-section h2 span { color: #444; }
+.caads-row { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
+.caads-row.reverse { flex-direction: row-reverse; }
+.caads-row-text { flex: 1; }
+.caads-row-text p { font-size: 18px; line-height: 1.8; text-align: justify; }
+.caads-row-img { flex: 1; text-align: center; }
+.caads-row-img img { width: 100%; max-width: 500px; border-radius: 12px; object-fit: cover; box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+.caads-quote { font-size: 22px; font-style: italic; text-align: center; margin-top: 50px; color: #555; max-width: 800px; margin-inline: auto; }
+
+/* Mission/Vision cards */
+.mission-vision-cards { display: flex; flex-wrap: wrap; gap: 30px; margin: 60px auto; max-width: 1100px; }
+.mv-card { flex: 1 1 45%; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.mv-card h3 { margin-bottom: 15px; font-size: 26px; }
+.mv-card p { font-size: 16px; line-height: 1.8; }

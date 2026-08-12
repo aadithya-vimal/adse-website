@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> 
+  <title>Contact • CHRIST CSE</title>
+  <link rel="stylesheet" href="css/ContactUs.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ▸▸ NAVBAR ----------------------------------------------------------- -->
+  <header class="navbar">
+    <nav class="nav-inner">
+      <img src="https://cdn.builder.io/api/v1/image/assets/5e358c269d9140e1be810ef6482a3f72/0e3123a2b157b6a32c8af04426f673215bee3d90?placeholderIfAbsent=true"
+           alt="Christ CSE Logo" class="logo">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About us.html">About&nbsp;Us</a></li>
+        <li><a href="ContactUs.html">Contact&nbsp;Us</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+      </ul>
+      
+    </nav>
+  </header>
+
+  <!-- ▸▸ CONTACT FORM ----------------------------------------------------- -->
+  <main class="contact-wrapper">
+    <img src="https://cdn.builder.io/api/v1/image/assets/5e358c269d9140e1be810ef6482a3f72/20755cad4db69315f1c2def14361a58d0f51c72a?placeholderIfAbsent=true"
+         alt="" class="contact-bg">
+
+    <section class="contact-card">
+      <h1>Contact&nbsp;Us</h1>
+      <form id="contactForm">
+        <label class="input-group"><input type="text" name="name" placeholder="Name" required></label>
+        <label class="input-group"><input type="email" name="email" placeholder="E-mail" required></label>
+        <label class="input-group"><input type="tel" name="phone" placeholder="Phone" required></label>
+        <label class="input-group textarea-group"><textarea name="message" rows="4" placeholder="Message" required></textarea></label>
+        <button type="submit" class="btn-primary">Send&nbsp;Message</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ▸▸ FOOTER ----------------------------------------------------------- -->
+  <footer class="site-footer">
+    <!-- newsletter -->
+    <section class="newsletter">
+      <div class="newsletter-copy">
+        <h2>Subscribe to updates</h2>
+        <p>Stay informed about our latest news and offerings.</p>
+      </div>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" name="newsletterEmail" placeholder="Your email here" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="privacy-note">By subscribing, you agree to our Privacy&nbsp;Policy.</p>
+    </section>
+    <hr>
+    <!-- footer links ... (same as your code) -->
+    <div class="footer-bottom">
+      <img src="https://cdn.builder.io/api/v1/image/assets/5e358c269d9140e1be810ef6482a3f72/37d3f381ddc80a116ed948088198303064e25c38?placeholderIfAbsent=true"
+           alt="Department logo" class="footer-logo">
+      <p>© 2025 Sudhanshu & Team. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ▸▸ SCRIPT ----------------------------------------------------------- -->
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzgdXbWDJa1Rlllx5lNLzct-Pw2YElDJiYdHrqIhdvWTxEVHGvGgNr09ukqNo590-6e/exec";
+
+    // Contact form → Google Sheets
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = Object.fromEntries(new FormData(e.target));
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const result = await res.json();
+        if (result.result === "success") {
+          alert("Your message has been submitted. Thank you!");
+          e.target.reset();
+        } else {
+          alert("Oops, something went wrong. Please try again later.");
+          console.error("Submission failed:", result);
+        }
+      } catch (err) {
+        alert("Error contacting server. Please try again in a moment.");
+        console.error(err);
+      }
+    });
+
+    // Newsletter form (optional → add second tab later)
+    document.getElementById('newsletterForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = new FormData(e.target).get('newsletterEmail');
+      alert("Subscribed successfully with " + email);
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

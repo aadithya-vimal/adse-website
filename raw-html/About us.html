@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="css/About us.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c6cfcd55332049a9408582f69ed157d9eecf76f0?width=304"
+                alt="Christ University Logo" class="navbar-logo" />
+            <nav class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="About us.html">About Us</a>
+                <a href="ContactUs.html">Contact Us</a>
+                <a href="newsletter.html">Newsletter</a>
+            </nav>
+            
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+
+        <!-- Top Left Image -->
+        <img class="image top-left" src="assets/kuriakose_chavara.png" alt="St. Kuriakose" />
+
+        <!-- Top Center Image -->
+        <img class="image top-center" src="assets/students_studying.png" alt="Students reading" />
+
+        <!-- Top Right: Vision Card -->
+        <div class="card vision-box">
+            <h2>VISION</h2>
+            <p>
+                Christ (Deemed to be University), a premier educational institution, is an academic fraternity of
+                individuals dedicated to the motto of "EXCELLENCE AND SERVICE."
+            </p>
+        </div>
+
+        <!-- ABOUT US Heading -->
+        <h1 class="about-title">ABOUT US</h1>
+
+        <!-- Mid Right Image -->
+        <img class="image mid-right" src="assets/dean_speaking.png" alt="Speaker at podium" />
+
+        <!-- Bottom Left: Mission Card -->
+        <div class="card mission-box">
+            <h2>MISSION</h2>
+            <p>
+                CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make
+                effective contribution to the society in a dynamic environment.
+            </p>
+        </div>
+
+        <!-- Bottom Center Image -->
+        <img class="image bottom-center" src="assets/students_group.png" alt="Students working" />
+
+        <!-- Bottom Right Image -->
+        <img class="image bottom-right" src="assets/department.png" alt="Smiling students" />
+
+    </section>
+
+    <!-- History Section -->
+    <section class="history-section">
+  <h1 class="history-title">History</h1>
+  <div class="history-content">
+    <div class="timeline">
+      <div class="timeline-item" data-img="assets/kuriakose_chavara.png">
+        <div class="year">1831</div>
+        <div class="dot highlight"></div>
+        <div class="description">
+          CHRIST (Deemed to be University) was born out of the <br />
+          educational vision of <br />
+          <strong>St Kuriakose Elias Chavara.</strong>
+        </div>
+      </div>
+      <div class="timeline-item" data-special="1969">
+        <div class="year">1969</div>
+        <div class="dot"></div>
+        <div class="description">
+          An educationalist and social reformer of the <br />
+          nineteenth century in South India.
+        </div>
+      </div>
+      <div class="timeline-item" data-img="assets/cmi.jpg" id ="cmi">
+        <div class="year">1998</div>
+        <div class="dot"></div>
+        <div class="description">
+          He founded the first Catholic indigenous <br />
+          congregation, Carmelites of Mary Immaculate (CMI),
+        </div>
+      </div>
+      <div class="timeline-item" data-img="assets/chclg.png">
+        <div class="year">2004</div>
+        <div class="dot"></div>
+        <div class="description">
+          in 1831 which administers CHRIST (Deemed to be University).
+        </div>
+      </div>
+    </div>
+
+    <div class="history-image">
+      <!-- Default image -->
+      <img src="assets/kuriakose_chavara.png" class="active default-img" alt="History step" />
+
+      <!-- Special images for 1969 -->
+      <img src="assets/tree.png" class="special-img tree" alt="Tree" />
+      <img src="assets/deer.png" class="special-img deer" alt="Deer" />
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+    <!-- Department Section -->
+    <section class="department-section">
+        <div class="department-content">
+            <div class="text">
+                <h1>Our Department</h1>
+                <p>
+                    Christ University’s AIML & Data Science department offers a well-rounded,
+                    modern educational experience—from cutting-edge curriculum and resources
+                    to active research, industry exposure, and strong career prospects. It
+                    aligns well with the university’s emphasis on “Excellence and Service”,
+                    though it demands discipline with regard to academics and campus policies.
+                </p>
+            </div>
+            <div class="image">
+                <img src="/assets/department.png" alt="Department Photo" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Dean Section -->
+    <section class="dean-section">
+    <div class="dean-container">
+      <div class="dean-card">
+        <img src="assets/dean_speaking.png" alt="Dr. Raghunandan Kumar">
+        <div class="dean-name">
+          <h3>DR. RAGHUNANDAN KUMAR<br>BE, ME, MBA, PhD</h3>
+        </div>
+      </div>
+      <div class="dean-text">
+        <h1>Meet Our Dean</h1>
+        <p>
+          Dr. Raghunandan Kumar embodies the ideal academic leader: a seasoned educator, accomplished
+          researcher, and visionary administrator.
+        </p>
+        <p>
+          His strong credentials (BE, ME, MBA, PhD), significant scholarly output, active mentorship, and
+          leadership in engineering education make him a tremendous asset to Christ University and an
+          inspiring role model for students and faculty alike.
+        </p>
+        <button id="readMoreBtn" class="read-more-btn">Read More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="deanModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Message from the Dean</h2>
+      <p>
+        Welcome to the School of Engineering and Technology (SoET) at CHRIST (Deemed to be University). Established in 2009,
+        SoET is a unique and fastest-growing school that equips students and scholars with the skills and competencies necessary
+        to navigate the complexities of today’s dynamic world. The school offers a wide range of programmes approved by the
+        University Grants Commission (UGC) and All India Council for Technical Education (AICTE) and accredited by the National
+        Assessment and Accreditation Council (NAAC) and National Board for Accreditation (NBA) through a blend of project-based
+        and multidisciplinary curricula in emerging technologies including Honors and Minors in AI&ML, Psychology, CIMA,
+        Management, Geomatics, and Architecture.
+      </p>
+      <p>
+        Spread across 78.5 acres, Kengeri Campus located off Mysore Road, is lush green with several amenities. The Mysore
+        Horticulture Society, Lalbagh, Bangalore has awarded the Special Outstanding Prize of ‘Best Ornamental Gardens’ to Kengeri
+        Campus. The vibrancy of the campus is in its diversity among the students and faculty. Centres such as the Centre of
+        Excellence (COE) in E-Mobility, and Frontier Materials, enable our researchers and scientists to be at the forefront of
+        cutting-edge research, actively bridging the gap between innovation and education.
+      </p>
+      <p>
+        The university instills critical thinking in our graduates to recognize human and societal needs; design innovativeness,
+        and sustainable engineering solutions. Embrace an international perspective; and create value through entrepreneurial efforts.
+      </p>
+      <p>
+        Our graduates stand out as exceptional problem-solvers, adept leaders, and skilled communicators through the holistic
+        education imparted to them by the university. They exhibit remarkable adaptability in the face of new challenges within
+        diverse, multicultural environments. Committed to continuous learning, they keep abreast of evolving and emerging
+        technologies and stay responsive to the ever-changing demands of the workplace.
+      </p>
+      <p>
+        SoET is an internationally recognized center of leading-edge technology and many students find unparalleled opportunities
+        for real-world experience before they enter the workforce. CHRIST strives to develop the citizens of tomorrow by nurturing
+        the individual’s holistic development to make an effective contribution to society in a dynamic environment, which drives us
+        toward the pursuit of excellence.
+      </p>
+      <p>
+        I invite you to be part of this unique transformative journey with our motto of ‘Excellence and Service’.
+      </p>
+      <p>
+        <strong>DR. RAGHUNANDAN KUMAR</strong><br>
+        BE, ME, MBA, PhD<br>
+        Email: dean.engineering@christuniversity.in
+      </p>
+    </div>
+  </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-subscribe">
+                <div class="subscribe-text">
+                    <h3>Subscribe to updates</h3>
+                    <p>Stay informed about our latest news and offerings.</p>
+                </div>
+                <form class="subscribe-form">
+                    <div class="input-wrapper">
+                        <input type="email" placeholder="Your email here" required />
+                    </div>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="privacy">By subscribing, you agree to our Privacy Policy.</p>
+            </div>
+
+            <hr>
+
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog Posts</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">User Guide</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Connect With Us</h4>
+                    <ul>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Help Desk</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Stay Updated</h4>
+                    <ul>
+                        <li><a href="#">Link Twenty One</a></li>
+                        <li><a href="#">Link Twenty Two</a></li>
+                        <li><a href="#">Link Twenty Three</a></li>
+                        <li><a href="#">Link Twenty Four</a></li>
+                        <li><a href="#">Link Twenty Five</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Stay Connected</h4>
+                    <ul>
+                        <li><a href="#">Link Twenty Six</a></li>
+                        <li><a href="#">Link Twenty Seven</a></li>
+                        <li><a href="#">Link Twenty Eight</a></li>
+                        <li><a href="#">Link Twenty Nine</a></li>
+                        <li><a href="#">Link Thirty</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e76991aa421e489c54cbc0932fc11287b53692fc?width=304"
+                        alt="Department Logo" class="footer-logo" />
+                </div>
+                <div class="footer-bottom-right">
+                    <p>© 2025 Sudhanshu & Team. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal cards for scroll-in
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in-view');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: .2 });
+        document.querySelectorAll('.card').forEach(c => io.observe(c));
+
+        // Make image float timings random
+        document.querySelectorAll('.image').forEach((img, i) => {
+            // pick random delay 0–2s and duration 2–5s
+            const delay = (Math.random() * 2).toFixed(2) + 's';
+            const dur = (Math.random() * 3 + 2).toFixed(2) + 's';
+
+            // keep your fade-in (floatIn) but randomize floatY
+            img.style.animation =
+                `floatIn .9s var(--ease-out) forwards, floatY ${dur} ease-in-out ${delay} infinite alternate`;
+        });
+    </script>
+    <script>
+const section = document.querySelector('.history-section');
+const timeline = document.querySelector('.timeline');
+const items = document.querySelectorAll('.timeline-item');
+const line = document.createElement('div');
+line.classList.add('timeline-line');
+timeline.appendChild(line);
+
+const defaultImg = document.querySelector('.default-img');
+const treeImg = document.querySelector('.special-img.tree');
+const deerImg = document.querySelector('.special-img.deer');
+
+window.addEventListener('scroll', () => {
+  const rect = section.getBoundingClientRect();
+  const scrollProgress = Math.min(Math.max(-rect.top / (rect.height - window.innerHeight), 0), 1);
+
+  // grow vertical line
+  line.style.position = 'absolute';
+  line.style.top = 0;
+  line.style.left = '181px';
+  line.style.width = '2px';
+  line.style.background = '#000';
+  line.style.height = scrollProgress * timeline.scrollHeight + 'px';
+
+  // which item is active?
+  const step = Math.min(items.length - 1, Math.floor(scrollProgress * items.length));
+  items.forEach((item, idx) => {
+    item.classList.toggle('active', idx <= step);
+  });
+
+  const activeItem = items[step];
+
+  // Special case: 1969
+  if (activeItem.dataset.special === "1969") {
+    defaultImg.classList.remove('active');
+    treeImg.classList.add('show');
+    deerImg.classList.add('show');
+  } else {
+    // hide special images
+    treeImg.classList.remove('show');
+    deerImg.classList.remove('show');
+
+    // normal swap
+    const imgPath = activeItem.getAttribute('data-img');
+    if (imgPath && defaultImg.getAttribute('src') !== imgPath) {
+      defaultImg.classList.remove('active');
+      setTimeout(() => {
+        defaultImg.setAttribute('src', imgPath);
+        defaultImg.classList.add('active');
+      }, 300);
+    }
+  }
+});
+</script>
+
+<script>
+    const modal = document.getElementById("deanModal");
+    const btn = document.getElementById("readMoreBtn");
+    const closeBtn = document.querySelector(".close-btn");
+
+    btn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
+
+
+
+
+</body>
+
+</html>

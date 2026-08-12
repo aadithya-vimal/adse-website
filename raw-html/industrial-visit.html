@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Industrial Visit • CHRIST CSE</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Times New Roman", Times, serif;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url("assets/Infosys_Mysore.jpg") center/cover no-repeat;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            /* overlay for readability */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .about-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .about-section h2 {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #111;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .text {
+            flex: 1;
+        }
+
+        .text p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight {
+            font-size: 22px;
+            text-align: center;
+            margin: 60px auto 0;
+            font-style: italic;
+            color: #555;
+            max-width: 800px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .row.reverse {
+                flex-direction: column;
+            }
+        }
+
+
+        /* -------------------------------------------------- */
+        /* BASIC RESET & VARIABLES                            */
+        /* -------------------------------------------------- */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            color: #1c1c1c;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* utility */
+        .container {
+            max-width: 1280px;
+            height: 80%;
+            margin-inline: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* -------------------------------------------------- */
+        /* NAVBAR                                             */
+        /* -------------------------------------------------- */
+        .navbar {
+            background: #000;
+            border-bottom: 2px solid #fff;
+        }
+
+        .nav-inner {
+            max-width: 1440px;
+            margin-inline: auto;
+            padding: 0 4rem;
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .logo {
+            width: 152px;
+            height: 49px;
+            object-fit: contain;
+        }
+
+        .avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-size: 1rem;
+            transition: opacity .25s;
+        }
+
+        .nav-links a:hover {
+            opacity: .7;
+        }
+
+        /* -------------------------------------------------- */
+        /* FOOTER                                             */
+        /* -------------------------------------------------- */
+        /* Footer Section */
+.footer {
+  background: #090303;
+  color: white;
+  padding: 80px 64px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.footer-subscribe {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.subscribe-text h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.subscribe-text p {
+  font-size: 14px;
+  margin-top: 6px;
+  color: #ccc;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.input-wrapper {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.input-wrapper input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  width: 220px;
+}
+
+.subscribe-form button {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 12px;
+  padding: 10px 24px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background: white;
+  color: #090303;
+}
+
+.privacy {
+  font-size: 10px;
+  color: #ccc;
+  margin-top: 8px;
+}
+
+/* Footer Links Section */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+  justify-content: space-between;
+}
+
+.link-column h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.link-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-column li {
+  margin: 6px 0;
+}
+
+.link-column a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.link-column a:hover {
+  color: #bbb;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom-left {
+  flex: 1;
+}
+
+.footer-bottom-right {
+  text-align: right;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-logo {
+  width: 152px;
+  height: auto;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  margin: 24px 0;
+}
+
+
+        /* ===== Industrial Visits ===== */
+.industrial-visits {
+  text-align: center;
+  padding: 80px 10%;
+  background: #f9f9f9;
+}
+
+.industrial-visits h2 {
+  font-size: 70px;
+  margin-bottom: 50px;
+  color: #111;
+  font-family: "Times New Roman", serif;
+}
+
+.visit-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  align-items: center;
+  justify-content: center;
+}
+
+.visit-card img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.visit-content {
+  flex: 1;
+  text-align: left;
+}
+
+.visit-content h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+.visit-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.read-more {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.read-more:hover {
+  background: #333;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero -->
+
+    <!-- ▸▸ NAVBAR ----------------------------------------------------------- -->
+    <header class="navbar">
+        <nav class="nav-inner">
+            <img src="https://cdn.builder.io/api/v1/image/assets/5e358c269d9140e1be810ef6482a3f72/0e3123a2b157b6a32c8af04426f673215bee3d90?placeholderIfAbsent=true"
+                alt="Christ CSE Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About&nbsp;Us</a></li>
+                <li><a href="ContactUs.html">Contact&nbsp;Us</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Industrial Visit</h1>
+            <p>Exploring industries, gaining real-world knowledge, and bridging the gap between classroom and workplace.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Industrial Visit -->
+    <!-- About Industrial Visit -->
+    <section class="about-section">
+        <h2>About Our Department Industrial Visits</h2>
+
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="text">
+                <p>
+                    At CHRIST (Deemed to be University), Department of Computer Science and Engineering,
+                    Industrial Visits are an integral part of our academic curriculum.
+                    They offer students a unique opportunity to witness practical applications
+                    of theoretical concepts learned in classrooms.
+                </p>
+            </div>
+            <div class="image">
+                <img src="assets/industrial1.jpg" alt="Industrial Visit 1">
+            </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="row reverse">
+            <div class="text">
+                <p>
+                    Through these visits, students interact with industry experts, observe
+                    real-time processes, and understand emerging technologies shaping the future.
+                    Such experiences not only enhance their technical knowledge but also
+                    build teamwork, communication, and problem-solving skills.
+                </p>
+            </div>
+            <div class="image">
+                <img src="assets/industrial2.jpg" alt="Industrial Visit 2">
+            </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="row">
+            <div class="text">
+                <p>
+                    Each year, our department organizes visits to leading IT companies,
+                    research centers, and tech hubs, enabling our students to stay aligned
+                    with industry trends and expectations.
+                </p>
+            </div>
+            <div class="image">
+                <img src="assets/industrial3.jpg" alt="Industrial Visit 3">
+            </div>
+        </div>
+
+        <div class="highlight">
+            “Learning beyond the classroom – Industrial Visits prepare our students for tomorrow’s challenges.”
+        </div>
+    </section>
+
+    <!-- ===== Our Industrial Visits Section ===== -->
+<section class="industrial-visits">
+  <h2>Our Industrial Visits</h2>
+
+  <div class="visit-card">
+    <img src="assets/Infosys_Mysore.jpg" alt="Infosys Mysore Visit">
+    <div class="visit-content">
+      <h3>Industrial Visit to Infosys, Mysore</h3>
+      <p>
+        Our students had the opportunity to visit Infosys Campus, Mysore – one of the largest corporate training 
+        centers in the world. The visit provided deep insights into industry culture, modern training methodologies, 
+        and emerging IT practices that bridge the gap between academics and corporate exposure.
+      </p>
+      <a href="industrial-visit-infosys.html" class="read-more">Read More →</a>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- ▸▸ FOOTER ----------------------------------------------------------- -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-subscribe">
+                <div class="subscribe-text">
+                    <h3>Subscribe to updates</h3>
+                    <p>Stay informed about our latest news and offerings.</p>
+                </div>
+                <form class="subscribe-form">
+                    <div class="input-wrapper">
+                        <input type="email" placeholder="Your email here" required />
+                    </div>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="privacy">By subscribing, you agree to our Privacy Policy.</p>
+            </div>
+
+            <hr>
+
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog Posts</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">User Guide</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                        <li><a href="#">Newsroom</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Connect With Us</h4>
+                    <ul>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#">Help Desk</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Stay Updated</h4>
+                    <ul>
+                        <li><a href="#">Link Twenty One</a></li>
+                        <li><a href="#">Link Twenty Two</a></li>
+                        <li><a href="#">Link Twenty Three</a></li>
+                        <li><a href="#">Link Twenty Four</a></li>
+                        <li><a href="#">Link Twenty Five</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Stay Connected</h4>
+                    <ul>
+                        <li><a href="#">Link Twenty Six</a></li>
+                        <li><a href="#">Link Twenty Seven</a></li>
+                        <li><a href="#">Link Twenty Eight</a></li>
+                        <li><a href="#">Link Twenty Nine</a></li>
+                        <li><a href="#">Link Thirty</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/e76991aa421e489c54cbc0932fc11287b53692fc?width=304"
+                        alt="Department Logo" class="footer-logo" />
+                </div>
+                <div class="footer-bottom-right">
+                    <p>© 2025 Sudhanshu & Team. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

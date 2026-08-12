@@ -1,0 +1,41 @@
+/* ContactUs styles ported from ContactUs.css */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+.contact-page { background: #fff; color: #1c1c1c; font-family: 'Inter', sans-serif; }
+
+/* Contact form wrapper */
+.contact-wrapper { position: relative; min-height: 450px; padding: 40px 60px; display: flex; justify-content: center; align-items: center; }
+.contact-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.contact-card { width: 523px; max-width: 100%; background: #fff; border-radius: 10px; padding: 86px 41px; }
+.contact-card h1 { font-size: 35px; text-align: center; margin-bottom: 60px; }
+#contactForm { display: flex; flex-direction: column; gap: 20px; }
+.input-group, .textarea-group { border: 1px solid #7c7c7c; border-radius: 50px; padding: 16px 26px; background: #fff; display: block; }
+.input-group input, .textarea-group textarea { width: 100%; border: none; outline: none; font-size: 1rem; color: #7c7c7c; background: transparent; font-family: 'Inter', sans-serif; }
+.textarea-group { padding-bottom: 108px; border-radius: 20px; }
+.btn-primary { display: inline-block; align-self: center; background: #1c1c1c; color: #fff; border: none; border-radius: 10px; padding: 18px 70px; font-size: 15px; cursor: pointer; transition: background .25s; }
+.btn-primary:hover { background: #282828; }
+
+/* Footer (contact page specific) */
+.site-footer { background: #000; color: #fff; padding: 80px 64px; display: flex; flex-direction: column; align-items: center; gap: 80px; }
+.site-footer hr { width: 100%; border: none; border-top: 2px solid #fff; }
+.newsletter-strip { max-width: 1280px; width: 100%; display: flex; gap: 100px 40px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.newsletter-copy h2 { font-size: 1.125rem; margin-bottom: 6px; }
+.newsletter-copy p { margin: 0; }
+.newsletter-form { display: flex; gap: 16px; }
+.newsletter-form input { flex: 1; padding: 10px 16px; border: 2px solid #fff; border-radius: 12px; background: transparent; color: #fff; outline: none; font-size: 1rem; }
+.newsletter-form input::placeholder { color: #fff; opacity: .85; }
+.newsletter-form button { padding: 10px 24px; border: 2px solid #fff; border-radius: 12px; background: transparent; color: #fff; font-weight: 500; cursor: pointer; transition: background .25s, color .25s; }
+.newsletter-form button:hover { background: #fff; color: #000; }
+.privacy-note { font-size: .75rem; margin-top: 8px; }
+.contact-footer-links { max-width: 1280px; width: 100%; display: flex; gap: 48px; flex-wrap: wrap; justify-content: space-between; }
+.footer-bottom-row { max-width: 1280px; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-bottom-row img { width: 152px; height: auto; }
+.footer-bottom-row p { font-size: .875rem; margin: 0; }
+@media (max-width: 768px) {
+  .contact-wrapper { padding: 57px 20px; }
+  .contact-card { padding: 60px 32px; }
+  .newsletter-strip { gap: 40px; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form button { width: 100%; }
+  .contact-footer-links { gap: 24px; }
+}
