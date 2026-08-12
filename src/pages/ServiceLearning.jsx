@@ -3,48 +3,59 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './ServiceLearning.css'
 
+import service1Img from '../assets/service1.jpg'
+import service2Img from '../assets/service2.jpg'
+import service3Img from '../assets/service3.jpg'
+import service4Img from '../assets/service4.jpg'
+import service5Img from '../assets/service5.png'
+import service6Img from '../assets/service6.jpg'
+import service7Img from '../assets/service7.jpg'
+import serviceBannerImg from '../assets/servicebanner.jpg'
+import serviceBanner1Img from '../assets/servicebanner1.jpg'
+import serviceBanner2Img from '../assets/servicebanner2.jpg'
+
 const NEWSLETTERS = [
   {
     title: "Kusuri Mane",
     subtitle: "Bengaluru",
     description: "Kusuri Mane is a marketplace for handmade, homemade, fresh-made, local-made, and also rural-made products.",
-    image: "/assets/service1.jpg"
+    image: service1Img
   },
   {
     title: "Janapada Loka",
     subtitle: "Ramanagara",
     description: "This has become quite popular among tourists as it offers an excellent opportunity to observe the myriad folk art of Karnataka and as well as internalize the Heritage and Culture of the state.",
-    image: "/assets/service2.jpg"
+    image: service2Img
   },
   {
     title: "Jungle Lodges and Resorts",
     subtitle: "Bengaluru",
     description: "It boasts of numerous sights of natural beauty along with an impressive amount of flora and fauna. Charming grasslands, dense forests, and glistening rivers are a common sight in the state.",
-    image: "/assets/service3.jpg"
+    image: service3Img
   },
   {
     title: "Ride for Cause",
     subtitle: "Bengaluru",
     description: "It is a non-profit organization in India dedicated to helping underprivileged children reach their full potential—physically, mentally, and emotionally.",
-    image: "/assets/service4.jpg"
+    image: service4Img
   },
   {
     title: "Uthishta",
     subtitle: "Bengaluru",
     description: "Uthishta is a committed non-profit organization that works towards uplifting and empowering underserved communities through transformative initiatives.",
-    image: "/assets/service5.png"
+    image: service5Img
   },
   {
     title: "Saahas Zero Waste",
     subtitle: "Bengaluru",
     description: "Saahas Waste Management Pvt Ltd, a socio-environmental enterprise also known as Saahas Zero Waste, provides end-to-end waste management services.",
-    image: "/assets/service6.jpg"
+    image: service6Img
   },
   {
     title: "Grama Shilpi",
     subtitle: "Hubballi",
     description: "Skill upgradation to existing artisans and training to new generation artisans. Diversifying artisan products to meet eco-friendly demand.",
-    image: "/assets/service7.jpg"
+    image: service7Img
   }
 ]
 
@@ -118,7 +129,7 @@ export default function ServiceLearning() {
             </p>
           </div>
           <div className="sl-image">
-            <img src="/assets/servicebanner.jpg" alt="Service Learning 1" />
+            <img src={serviceBannerImg} alt="Service Learning 1" />
           </div>
         </div>
 
@@ -130,7 +141,7 @@ export default function ServiceLearning() {
             </p>
           </div>
           <div className="sl-image">
-            <img src="/assets/servicebanner1.jpg" alt="Service Learning 2" />
+            <img src={serviceBanner1Img} alt="Service Learning 2" />
           </div>
         </div>
 
@@ -142,7 +153,7 @@ export default function ServiceLearning() {
             </p>
           </div>
           <div className="sl-image">
-            <img src="/assets/servicebanner2.jpg" alt="Service Learning 3" />
+            <img src={serviceBanner2Img} alt="Service Learning 3" />
           </div>
         </div>
       </section>

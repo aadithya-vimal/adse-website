@@ -3,11 +3,21 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import './AboutUs.css'
 
+import kuriakoseImg from '../assets/kuriakose_chavara.png'
+import cmiImg from '../assets/cmi.jpg'
+import chclgImg from '../assets/chclg.png'
+import studentsStudyingImg from '../assets/students_studying.png'
+import deanSpeakingImg from '../assets/dean_speaking.png'
+import studentsGroupImg from '../assets/students_group.png'
+import departmentImg from '../assets/department.png'
+import treeImgAsset from '../assets/tree.png'
+import deerImgAsset from '../assets/deer.png'
+
 const HISTORY_ITEMS = [
-  { year: '1831', highlight: true, dataImg: '/assets/kuriakose_chavara.png', description: <>CHRIST (Deemed to be University) was born out of the <br /> educational vision of <br /> <strong>St Kuriakose Elias Chavara.</strong></> },
+  { year: '1831', highlight: true, dataImg: kuriakoseImg, description: <>CHRIST (Deemed to be University) was born out of the <br /> educational vision of <br /> <strong>St Kuriakose Elias Chavara.</strong></> },
   { year: '1969', special: '1969', description: <>An educationalist and social reformer of the <br /> nineteenth century in South India.</> },
-  { year: '1998', dataImg: '/assets/cmi.jpg', isCmi: true, description: <>He founded the first Catholic indigenous <br /> congregation, Carmelites of Mary Immaculate (CMI),</> },
-  { year: '2004', dataImg: '/assets/chclg.png', isChclg: true, description: <>in 1831 which administers CHRIST (Deemed to be University).</> },
+  { year: '1998', dataImg: cmiImg, isCmi: true, description: <>He founded the first Catholic indigenous <br /> congregation, Carmelites of Mary Immaculate (CMI),</> },
+  { year: '2004', dataImg: chclgImg, isChclg: true, description: <>in 1831 which administers CHRIST (Deemed to be University).</> },
 ]
 
 export default function AboutUs() {
@@ -78,20 +88,20 @@ export default function AboutUs() {
 
       {/* About Hero */}
       <section className="about-section">
-        <img className="about-img top-left" src="/assets/kuriakose_chavara.png" alt="St. Kuriakose" />
-        <img className="about-img top-center" src="/assets/students_studying.png" alt="Students reading" />
+        <img className="about-img top-left" src={kuriakoseImg} alt="St. Kuriakose" />
+        <img className="about-img top-center" src={studentsStudyingImg} alt="Students reading" />
         <div className="vision-box-abs about-anim-card">
           <h2>VISION</h2>
           <p>Christ (Deemed to be University), a premier educational institution, is an academic fraternity of individuals dedicated to the motto of "EXCELLENCE AND SERVICE."</p>
         </div>
         <h1 className="about-title">ABOUT US</h1>
-        <img className="about-img mid-right" src="/assets/dean_speaking.png" alt="Speaker at podium" />
+        <img className="about-img mid-right" src={deanSpeakingImg} alt="Speaker at podium" />
         <div className="mission-box-abs about-anim-card">
           <h2>MISSION</h2>
           <p>CHRIST (Deemed to be University) is a nurturing ground for an individual's holistic development to make effective contribution to the society in a dynamic environment.</p>
         </div>
-        <img className="about-img bottom-center" src="/assets/students_group.png" alt="Students working" />
-        <img className="about-img bottom-right" src="/assets/department.png" alt="Smiling students" />
+        <img className="about-img bottom-center" src={studentsGroupImg} alt="Students working" />
+        <img className="about-img bottom-right" src={departmentImg} alt="Smiling students" />
       </section>
 
       {/* History */}
@@ -119,8 +129,8 @@ export default function AboutUs() {
               alt="History step"
               ref={defaultImgRef}
             />
-            <img src="/assets/tree.png" className={`special-img tree${showTree ? ' show' : ''}`} alt="Tree" ref={treeImgRef} />
-            <img src="/assets/deer.png" className={`special-img deer${showDeer ? ' show' : ''}`} alt="Deer" ref={deerImgRef} />
+            <img src={treeImgAsset} className={`special-img tree${showTree ? ' show' : ''}`} alt="Tree" ref={treeImgRef} />
+            <img src={deerImgAsset} className={`special-img deer${showDeer ? ' show' : ''}`} alt="Deer" ref={deerImgRef} />
           </div>
         </div>
       </section>
@@ -139,7 +149,7 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="dept-img">
-            <img src="/assets/department.png" alt="Department Photo" />
+            <img src={departmentImg} alt="Department Photo" />
           </div>
         </div>
       </section>
@@ -148,7 +158,7 @@ export default function AboutUs() {
       <section className="dean-section">
         <div className="dean-container">
           <div className="dean-card">
-            <img src="/assets/dean_speaking.png" alt="Dr. Raghunandan Kumar" />
+            <img src={deanSpeakingImg} alt="Dr. Raghunandan Kumar" />
             <div className="dean-name">
               <h3>DR. RAGHUNANDAN KUMAR<br />BE, ME, MBA, PhD</h3>
             </div>
