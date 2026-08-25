@@ -1,20 +1,32 @@
-/* FacultyDev CSS - ported from faculty-dev.html inline styles */
-.fda-page { margin: 0; font-family: "Times New Roman", Times, serif; background: #f9f9f9; color: #333; line-height: 1.6; }
+/* ============================================================
+   FACULTY DEVELOPMENT – page-specific styles (uses global tokens)
+   ============================================================ */
+.fda-page { font-family: var(--font-body); background: var(--bg-off-white); color: var(--text-body); line-height: 1.6; }
 
 /* Hero */
-.fda-hero { background: url('/assets/abstract.jpg') center/cover no-repeat; height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
+.fda-hero { background: url('/assets/abstract.jpg') center/cover no-repeat; height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--text-on-dark); position: relative; }
 .fda-hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
-.fda-hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 20px; }
+.fda-hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 var(--pad-x-mobile); }
 .fda-hero-content h1 { font-size: 52px; margin-bottom: 20px; letter-spacing: 1.5px; }
 .fda-hero-content p { font-size: 20px; line-height: 1.6; }
 
 /* About Section */
-.fda-about { padding: 60px 10%; background: #fff; }
-.fda-about h2 { font-size: 38px; text-align: center; margin-bottom: 40px; color: #111; }
+.fda-about { padding: 60px 10%; background: var(--bg-white); }
+.fda-about h2 { font-size: 38px; text-align: center; margin-bottom: 40px; color: var(--text-heading); font-family: var(--font-display); }
 .about-row { display: flex; align-items: center; justify-content: space-between; gap: 40px; margin-bottom: 50px; flex-wrap: wrap; }
 .about-row.reverse { flex-direction: row-reverse; }
-.about-row-text { flex: 1; }
+.about-row-text { flex: 1; min-width: 260px; }
 .about-row-text p { font-size: 18px; line-height: 1.8; text-align: justify; margin: 0; }
-.about-row-img { flex: 1; text-align: center; }
-.about-row-img img { width: 100%; max-width: 420px; height: 260px; object-fit: cover; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
-.fda-highlight { font-size: 20px; text-align: center; margin: 40px auto 0; font-style: italic; color: #555; max-width: 800px; }
+.about-row-img { flex: 1; min-width: 260px; text-align: center; }
+.about-row-img img { width: 100%; max-width: 420px; height: 260px; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+.fda-highlight { font-family: var(--font-display); font-style: italic; font-size: 20px; text-align: center; margin: 40px auto 0; color: var(--text-muted); max-width: 800px; }
+
+@media (max-width: 768px) {
+  .fda-hero { height: 52vh; }
+  .fda-hero-content h1 { font-size: 36px; }
+  .fda-hero-content p { font-size: 17px; }
+  .fda-about { padding: 60px var(--pad-x-mobile); }
+  .fda-about h2 { font-size: 32px; }
+  .about-row-text p { text-align: left; }
+  .fda-highlight { font-size: 18px; }
+}
