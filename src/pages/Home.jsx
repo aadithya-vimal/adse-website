@@ -63,7 +63,7 @@ export default function Home() {
   // Close popup on outside click
   useEffect(() => {
     function handleClick(e) {
-      if (e.target.classList.contains('popup')) {
+      if (e.target.classList.contains('modal')) {
         setAboutOpen(false)
         setHodOpen(false)
       }
@@ -205,8 +205,8 @@ export default function Home() {
       </section>
 
       {/* About popup */}
-      <div id="popupBox" className={`popup${aboutOpen ? ' open' : ''}`}>
-        <div className="popup-content">
+      <div id="popupBox" className={`modal${aboutOpen ? ' open' : ''}`}>
+        <div className="modal-content">
           <button className="close-btn" onClick={() => setAboutOpen(false)}>&times;</button>
           <h2>About Department</h2>
           <p>
@@ -233,8 +233,8 @@ export default function Home() {
       </div>
 
       {/* HOD popup */}
-      <div id="hodPopup" className={`popup${hodOpen ? ' open' : ''}`}>
-        <div className="popup-content">
+      <div id="hodPopup" className={`modal${hodOpen ? ' open' : ''}`}>
+        <div className="modal-content">
           <button className="close-btn" onClick={() => setHodOpen(false)}>&times;</button>
           <h2>Message from the HOD</h2>
           <p>
@@ -285,7 +285,7 @@ export default function Home() {
       {/* Faculty */}
       <section id="faculty">
         <h1>Meet our Faculties</h1>
-        <section className="filter-section">
+        <section className="filter-bar">
           <div className="filters">
             <span className="filter-label">Filter by:</span>
             <select
