@@ -11,19 +11,32 @@ export default function FacultyDetail() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('/faculty.json')
-      .then(res => res.json())
-      .then(data => {
+    // API (database) first, bundled JSON as offline fallback
+    async function load() {
+      try {
+        let data = null
+        try {
+          const res = await fetch('/api/faculties', { cache: 'no-store' })
+          if (res.ok) {
+            const payload = await res.json()
+            if (Array.isArray(payload?.faculties) && payload.faculties.length) data = payload.faculties
+          }
+        } catch { /* fall through */ }
+        if (!data) {
+          const res = await fetch('/faculty.json')
+          data = await res.json()
+        }
         if (Array.isArray(data)) {
           const found = data.find(f => f.id === id)
           setFaculty(found || null)
         }
-        setLoading(false)
-      })
-      .catch(err => {
+      } catch (err) {
         console.error('Error loading faculty data:', err)
+      } finally {
         setLoading(false)
-      })
+      }
+    }
+    load()
   }, [id])
 
   return (

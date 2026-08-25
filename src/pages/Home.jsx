@@ -20,8 +20,19 @@ export default function Home() {
   const searchTimer = useRef(null)
 
   useEffect(() => {
-    fetch('/faculty.json', { cache: 'no-store' })
-      .then(r => r.json())
+    // API (database) first, bundled JSON as offline fallback
+    async function loadFaculty() {
+      try {
+        const res = await fetch('/api/faculties', { cache: 'no-store' })
+        if (res.ok) {
+          const payload = await res.json()
+          if (Array.isArray(payload?.faculties) && payload.faculties.length) return payload.faculties
+        }
+      } catch { /* fall through to static file */ }
+      const res = await fetch('/faculty.json', { cache: 'no-store' })
+      return res.json()
+    }
+    loadFaculty()
       .then(data => {
         if (!Array.isArray(data)) return
         setFacultyData(data)
