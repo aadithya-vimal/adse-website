@@ -99,7 +99,7 @@ export default function ServiceLearning() {
 
       {/* Search Section */}
       <section className="sl-filter-section">
-        <div className="sl-search-box">
+        <div className="search-box sl-search-box">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/5e358c269d9140e1be810ef6482a3f72/2cef4ee11033eecb4a19ef2637573b4246bf4c9b"
             alt="Search icon"
@@ -180,7 +180,7 @@ export default function ServiceLearning() {
         </section>
 
         {totalPages > 1 && (
-          <div className="sl-pagination">
+          <div className="pagination">
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage(p => p - 1)}
