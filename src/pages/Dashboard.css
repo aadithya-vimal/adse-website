@@ -1,0 +1,138 @@
+/* Dashboard styles (React) — matches site palette (black/grey/navy).
+ * Scoped under .dash-shell so SPA-global styles are not polluted. */
+.dash-shell {
+  font-family: 'Inter', sans-serif;
+  background: #0d0d0d;
+  color: #f5f5f5;
+  min-height: calc(100vh - 74px);
+  box-sizing: border-box;
+}
+
+.dash-shell *,
+.dash-shell *::before,
+.dash-shell *::after { box-sizing: border-box; }
+.dash-shell > * { margin: 0; padding: 0; }
+
+.dash-shell main.wrap { max-width: 1180px; margin: 0 auto; padding: 32px 20px 80px; }
+
+.dash-shell h1.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.dash-shell p.page-sub { color: #9a9a9a; margin-bottom: 30px; }
+
+.dash-shell section.panel {
+  background: linear-gradient(180deg, #161616, #111);
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 22px 22px 26px;
+  margin-bottom: 24px;
+}
+.dash-shell section.panel > h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dash-shell section.panel > h2::before { content: ''; width: 4px; height: 18px; background: #003366; border-radius: 2px; }
+
+.dash-shell .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+.dash-shell form.inline { display: grid; gap: 12px; margin-bottom: 8px; }
+@media (min-width: 720px) {
+  .dash-shell form.inline.cols { grid-template-columns: 1fr 1fr auto; align-items: end; }
+  .dash-shell form.inline.cols-4 { grid-template-columns: 1fr 1fr 1fr auto; align-items: end; }
+}
+.dash-shell .field label { display: block; font-size: 0.78rem; color: #9a9a9a; margin-bottom: 5px; }
+.dash-shell input[type='text'],
+.dash-shell input[type='email'],
+.dash-shell select,
+.dash-shell textarea {
+  width: 100%; background: #101010; color: #eee; border: 1px solid #2c2c2c;
+  border-radius: 8px; padding: 10px 11px; font-size: 0.92rem; font-family: inherit; outline: none;
+}
+.dash-shell input:focus, .dash-shell select:focus, .dash-shell textarea:focus {
+  border-color: #003366; box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.35);
+}
+.dash-shell textarea { min-height: 90px; resize: vertical; font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
+.dash-shell input[type='file'] { color: #aaa; font-size: 0.88rem; }
+.dash-shell input[type='file']::file-selector-button {
+  background: #002147; color: #fff; border: none; border-radius: 6px; padding: 8px 12px;
+  margin-right: 10px; cursor: pointer; font-family: inherit;
+}
+
+.dash-shell .btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  background: #002147; color: #fff; border: none; border-radius: 8px;
+  padding: 10px 18px; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  text-decoration: none; transition: background 0.15s ease; white-space: nowrap;
+}
+.dash-shell .btn:hover { background: #003366; }
+.dash-shell .btn[disabled] { opacity: 0.55; cursor: not-allowed; }
+.dash-shell .btn-ghost { background: transparent; border: 1px solid #2c2c2c; color: #ddd; }
+.dash-shell .btn-ghost:hover { background: #1e1e1e; }
+.dash-shell .btn-danger { background: #7a1b15; }
+.dash-shell .btn-danger:hover { background: #99231c; }
+.dash-shell .btn-sm { padding: 6px 10px; font-size: 0.78rem; border-radius: 6px; }
+
+.dash-shell .alert {
+  margin: 0 0 14px; padding: 10px 13px; border-radius: 8px;
+  font-size: 0.88rem; word-break: break-word;
+}
+.dash-shell .alert.error { background: rgba(179,38,30,.14); border: 1px solid rgba(179,38,30,.55); color: #ff9d97; }
+.dash-shell .alert.ok { background: rgba(29,122,70,.13); border: 1px solid rgba(29,122,70,.5); color: #7fd8a6; }
+
+.dash-shell table.data {
+  width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 6px;
+}
+.dash-shell table.data th, .dash-shell table.data td {
+  text-align: left; padding: 10px 12px; border-bottom: 1px solid #232323; vertical-align: middle;
+}
+.dash-shell table.data th {
+  color: #8a8a8a; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+}
+.dash-shell table.data tr:last-child td { border-bottom: none; }
+.dash-shell table.data td.actions { white-space: nowrap; text-align: right; }
+.dash-shell table.data td.actions .btn { margin-left: 6px; }
+
+.dash-shell .pill {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+}
+.dash-shell .pill-PENDING { background: #333; color: #ccc; }
+.dash-shell .pill-IN_PROGRESS { background: #0b2d52; color: #9ec5ee; }
+.dash-shell .pill-APPROVED { background: #14442a; color: #86e0ab; }
+.dash-shell .pill-COMPLETED { background: #0f5132; color: #b7f0cd; }
+.dash-shell .pill-REJECTED { background: #58151c; color: #ff9d97; }
+.dash-shell .pill-public { background: #14442a; color: #86e0ab; }
+.dash-shell .pill-private { background: #333; color: #bbb; }
+
+.dash-shell .role-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+}
+
+.dash-shell .muted { color: #8a8a8a; font-size: 0.82rem; }
+.dash-shell .empty { color: #777; font-style: italic; padding: 14px 0; }
+
+.dash-shell .class-block { border: 1px solid #262626; border-radius: 10px; padding: 16px; margin-bottom: 16px; background: #121212; }
+.dash-shell .class-block h3 { font-size: 0.98rem; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+.dash-shell .subject-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 0; border-top: 1px dashed #222; }
+.dash-shell .subject-row:first-of-type { border-top: none; }
+.dash-shell .subject-row code { background: #0d1b2e; color: #9ec5ee; padding: 2px 8px; border-radius: 6px; font-size: 0.8rem; }
+.dash-shell .subject-row select { width: auto; min-width: 180px; padding: 6px 8px; font-size: 0.82rem; }
+
+.dash-shell .content-key { border: 1px solid #262626; border-radius: 10px; padding: 14px; margin-bottom: 14px; background: #121212; }
+.dash-shell .content-key header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; gap: 10px; }
+.dash-shell .content-key header code.keyname { color: #ffd479; font-size: 0.85rem; }
+
+.dash-shell .thumb { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin-right: 8px; }
+
+@media (max-width: 640px) {
+  .dash-shell table.data { display: block; overflow-x: auto; }
+}
