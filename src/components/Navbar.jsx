@@ -1,8 +1,25 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
+import { isLoggedIn, logout, getStoredUser } from '../lib/api.js'
+
+const NAV_ITEMS = [
+  { to: '/', label: 'Home' },
+  { to: '/about', label: 'About Us' },
+  { to: '/contact', label: 'Contact Us' },
+  { to: '/newsletter', label: 'Newsletter' },
+  { to: '/service-learning', label: 'Service Learning' },
+]
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const loggedIn = isLoggedIn()
+  const user = getStoredUser()
+
+  const linkClass = ({ isActive }) => (isActive ? 'active' : undefined)
+
+  function handleAccountClick() {
+    if (loggedIn) logout() // "Logout" action lives next to Dashboard entry
+  }
 
   return (
     <header className="navbar">
@@ -17,11 +34,29 @@ export default function Navbar() {
         <div className="navbar-center">
           <div className="navbar-links">
             <nav className="nav-menu">
-              <Link to="/">Home</Link>
-              <Link to="/about">About Us</Link>
-              <Link to="/contact">Contact Us</Link>
-              <Link to="/newsletter">Newsletter</Link>
-              <Link to="/service-learning">Service Learning</Link>
+              {NAV_ITEMS.map((item) => (
+                <NavLink key={item.to} to={item.to} className={linkClass} end={item.to === '/'}>
+                  {item.label}
+                </NavLink>
+              ))}
+              {loggedIn ? (
+                <>
+                  <NavLink to="/dashboard" className={({ isActive }) =>
+                    `account-link${isActive ? ' active' : ''}`}>
+                    Dashboard
+                  </NavLink>
+                  <a
+                    href="/login"
+                    className="account-logout"
+                    onClick={(e) => { e.preventDefault(); handleAccountClick(); window.location.href = '/' }}
+                    title={user ? `Signed in as ${user.email}` : undefined}
+                  >
+                    Logout
+                  </a>
+                </>
+              ) : (
+                <Link to="/login" className="account-link">Login</Link>
+              )}
             </nav>
           </div>
         </div>
@@ -33,11 +68,20 @@ export default function Navbar() {
         <span></span><span></span><span></span>
       </div>
       <div className={`mobile-menu${menuOpen ? ' active' : ''}`}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
-        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link>
-        <Link to="/newsletter" onClick={() => setMenuOpen(false)}>Newsletter</Link>
-        <Link to="/service-learning" onClick={() => setMenuOpen(false)}>Service Learning</Link>
+        {NAV_ITEMS.map((item) => (
+          <NavLink key={item.to} to={item.to} className={linkClass} end={item.to === '/'}
+            onClick={() => setMenuOpen(false)}>
+            {item.label}
+          </NavLink>
+        ))}
+        {loggedIn ? (
+          <NavLink to="/dashboard" className={({ isActive }) =>
+            `account-link${isActive ? ' active' : ''}`} onClick={() => setMenuOpen(false)}>
+            Dashboard
+          </NavLink>
+        ) : (
+          <Link to="/login" className="account-link" onClick={() => setMenuOpen(false)}>Login</Link>
+        )}
       </div>
     </header>
   )

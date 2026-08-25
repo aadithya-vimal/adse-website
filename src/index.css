@@ -39,6 +39,15 @@ img { max-width: 100%; }
   .navbar-inner { padding: 0 2rem; }
 }
 
+/* active page indicator + account actions (auth-aware navbar) */
+.navbar .nav-menu a.active { color: #fff; border-bottom: 2px solid #fff; font-weight: 600; padding-bottom: 2px; }
+.navbar .nav-menu a.account-link { background: #002147; padding: 6px 14px; border-radius: 6px; font-weight: 600; }
+.navbar .nav-menu a.account-link:hover { background: #003366; color: #fff; }
+.navbar .nav-menu a.account-logout { color: #9a9a9a; font-size: 14px; }
+.navbar .nav-menu a.account-logout:hover { color: #ff9d97; }
+.mobile-menu a.active { font-weight: 700; text-decoration: underline; }
+.mobile-menu a.account-link { background: #002147; padding: 8px 14px; border-radius: 6px; font-weight: 600; margin-top: 6px; }
+
 /* ============================================================
    FOOTER (shared)
    ============================================================ */
