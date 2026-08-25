@@ -47,7 +47,7 @@ export default function Newsletter() {
       </section>
 
       {/* Filter */}
-      <section className="nl-filter-section nl-container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+      <section className="nl-filter-section filter-bar" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
         <div className="nl-filters">
           <span className="filter-label">Filter&nbsp;by:</span>
           {FILTERS.map(f => (
@@ -58,7 +58,7 @@ export default function Newsletter() {
             >{f}</button>
           ))}
         </div>
-        <div className="nl-search-box">
+        <div className="search-box nl-search-box">
           <img src={SEARCH_ICON} alt="Search icon" />
           <input type="text" placeholder="Search newsletters…" aria-label="Search newsletters" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
         </div>
