@@ -19,6 +19,20 @@ export function saveSession(token, user) {
   localStorage.setItem(USER_KEY, JSON.stringify(user))
 }
 
+const VITE_API_URL = import.meta.env.VITE_API_URL
+let rawBase = (VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:3000' : '')).trim().replace(/\/+$/, '')
+if (rawBase && !/^https?:\/\//i.test(rawBase)) {
+  rawBase = `https://${rawBase}`
+}
+const BASE_URL = rawBase
+
+export function getApiUrl(path) {
+  if (!path) return ''
+  if (/^https?:\/\//i.test(path)) return path
+  const cleanPath = path.startsWith('/') ? path : `/${path}`
+  return BASE_URL ? `${BASE_URL}${cleanPath}` : cleanPath
+}
+
 export function logout() {
   localStorage.removeItem(TOKEN_KEY)
   localStorage.removeItem(USER_KEY)
@@ -36,7 +50,8 @@ export async function apiRequest(path, { method = 'GET', body, formData } = {}) 
     payload = JSON.stringify(body)
   }
 
-  const res = await fetch(path, { method, headers, body: payload })
+  const url = getApiUrl(path)
+  const res = await fetch(url, { method, headers, body: payload })
 
   let data = null
   const text = await res.text()

@@ -62,10 +62,12 @@ export default function Login() {
           <details className="demo-details">
             <summary>Demo accounts (dev only)</summary>
             <table>
-              <tr><td>Super admin</td><td><code>superadmin@adse.local</code></td></tr>
-              <tr><td>HOD (admin)</td><td><code>hod@christ.example.com</code></td></tr>
-              <tr><td>Faculty</td><td><code>faculty@christ.example.com</code></td></tr>
-              <tr><td>Student</td><td><code>student@christ.example.com</code></td></tr>
+              <tbody>
+                <tr><td>Super admin</td><td><code>superadmin@adse.local</code></td></tr>
+                <tr><td>HOD (admin)</td><td><code>hod@christ.example.com</code></td></tr>
+                <tr><td>Faculty</td><td><code>faculty@christ.example.com</code></td></tr>
+                <tr><td>Student</td><td><code>student@christ.example.com</code></td></tr>
+              </tbody>
             </table>
           </details>
         </div>

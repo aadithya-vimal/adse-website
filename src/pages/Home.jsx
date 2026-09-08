@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { getApiUrl } from '../lib/api'
 import './Home.css'
 
 export default function Home() {
@@ -23,7 +24,7 @@ export default function Home() {
     // API (database) first, bundled JSON as offline fallback
     async function loadFaculty() {
       try {
-        const res = await fetch('/api/faculties', { cache: 'no-store' })
+        const res = await fetch(getApiUrl('/api/faculties'), { cache: 'no-store' })
         if (res.ok) {
           const payload = await res.json()
           if (Array.isArray(payload?.faculties) && payload.faculties.length) return payload.faculties

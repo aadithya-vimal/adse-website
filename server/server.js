@@ -25,7 +25,56 @@ if (!process.env.JWT_SECRET) {
 
 const app = express();
 app.disable('x-powered-by');
-app.use(cors());
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173',
+  'http://127.0.0.1:3000',
+];
+
+if (process.env.FRONTEND_URL) {
+  process.env.FRONTEND_URL.split(',').forEach((url) => {
+    const trimmed = url.trim().replace(/\/+$/, '');
+    if (trimmed) {
+      if (!/^https?:\/\//i.test(trimmed)) {
+        if (!allowedOrigins.includes(`https://${trimmed}`)) allowedOrigins.push(`https://${trimmed}`);
+        if (!allowedOrigins.includes(`http://${trimmed}`)) allowedOrigins.push(`http://${trimmed}`);
+      } else if (!allowedOrigins.includes(trimmed)) {
+        allowedOrigins.push(trimmed);
+      }
+    }
+  });
+}
+
+if (process.env.APP_URL) {
+  const trimmed = process.env.APP_URL.trim().replace(/\/+$/, '');
+  if (trimmed) {
+    if (!/^https?:\/\//i.test(trimmed)) {
+      if (!allowedOrigins.includes(`https://${trimmed}`)) allowedOrigins.push(`https://${trimmed}`);
+      if (!allowedOrigins.includes(`http://${trimmed}`)) allowedOrigins.push(`http://${trimmed}`);
+    } else if (!allowedOrigins.includes(trimmed)) {
+      allowedOrigins.push(trimmed);
+    }
+  }
+}
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(null, false);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+
 app.use(express.json({ limit: '1mb' }));
 
 // Minimal security headers
@@ -44,7 +93,8 @@ app.use((req, _res, next) => {
   next();
 });
 
-app.get('/api/health', (_req, res) => res.json({ ok: true, uptime: process.uptime() }));
+// Public health check endpoint (no auth required)
+app.get('/api/health', (_req, res) => res.json({ status: 'ok', ok: true, uptime: process.uptime(), timestamp: new Date().toISOString() }));
 
 // Attach req.user when a valid Bearer token is present (never blocks GETs)
 app.use('/api', authenticate);
@@ -90,9 +140,9 @@ app.use((err, _req, res, _next) => {
   res.status(err.status || 500).json({ error: err.message || 'Internal server error' });
 });
 
-const PORT = Number(process.env.PORT) || 3000;
-app.listen(PORT, () => {
-  console.log(`ADSE website running at http://localhost:${PORT}${hasDist ? '' : ' (API + legacy static only — run "npm run build" for the React app)'}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`ADSE backend running on port ${PORT}${hasDist ? ' (serving API + dist)' : ' (API only)'}`);
 });
 
 export default app;

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { getApiUrl } from '../lib/api'
 import './FacultyDetail.css'
 
 export default function FacultyDetail() {
@@ -16,7 +17,7 @@ export default function FacultyDetail() {
       try {
         let data = null
         try {
-          const res = await fetch('/api/faculties', { cache: 'no-store' })
+          const res = await fetch(getApiUrl('/api/faculties'), { cache: 'no-store' })
           if (res.ok) {
             const payload = await res.json()
             if (Array.isArray(payload?.faculties) && payload.faculties.length) data = payload.faculties

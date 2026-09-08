@@ -63,7 +63,11 @@ router.post('/invite', async (req, res, next) => {
       data: { email: normalized, name: String(name).trim(), role: inviteRole, token, expiresAt, createdById: req.user.id },
     });
 
-    const inviteUrl = `${process.env.APP_URL || 'http://localhost:3000'}/accept-invite?token=${token}`;
+    let frontendBase = (process.env.FRONTEND_URL || process.env.APP_URL || 'http://localhost:3000').split(',')[0].trim().replace(/\/+$/, '');
+    if (frontendBase && !/^https?:\/\//i.test(frontendBase)) {
+      frontendBase = `https://${frontendBase}`;
+    }
+    const inviteUrl = `${frontendBase}/accept-invite?token=${token}`;
     sendInviteEmail({ to: normalized, name, role: inviteRole }).catch(console.error);
 
     res.status(201).json({
