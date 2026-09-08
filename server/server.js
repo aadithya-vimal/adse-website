@@ -26,50 +26,62 @@ if (!process.env.JWT_SECRET) {
 const app = express();
 app.disable('x-powered-by');
 
-const allowedOrigins = [
+const allowedOrigins = new Set([
+  'https://adse-website.onrender.com',
   'http://localhost:5173',
   'http://localhost:3000',
   'http://127.0.0.1:5173',
   'http://127.0.0.1:3000',
-];
+]);
+
+function addOrigin(url) {
+  if (!url) return;
+  const trimmed = url.trim().replace(/\/+$/, '');
+  if (!trimmed) return;
+  if (!/^https?:\/\//i.test(trimmed)) {
+    allowedOrigins.add(`https://${trimmed}`);
+    allowedOrigins.add(`http://${trimmed}`);
+  } else {
+    allowedOrigins.add(trimmed);
+  }
+}
 
 if (process.env.FRONTEND_URL) {
-  process.env.FRONTEND_URL.split(',').forEach((url) => {
-    const trimmed = url.trim().replace(/\/+$/, '');
-    if (trimmed) {
-      if (!/^https?:\/\//i.test(trimmed)) {
-        if (!allowedOrigins.includes(`https://${trimmed}`)) allowedOrigins.push(`https://${trimmed}`);
-        if (!allowedOrigins.includes(`http://${trimmed}`)) allowedOrigins.push(`http://${trimmed}`);
-      } else if (!allowedOrigins.includes(trimmed)) {
-        allowedOrigins.push(trimmed);
-      }
-    }
-  });
+  process.env.FRONTEND_URL.split(',').forEach(addOrigin);
 }
 
 if (process.env.APP_URL) {
-  const trimmed = process.env.APP_URL.trim().replace(/\/+$/, '');
-  if (trimmed) {
-    if (!/^https?:\/\//i.test(trimmed)) {
-      if (!allowedOrigins.includes(`https://${trimmed}`)) allowedOrigins.push(`https://${trimmed}`);
-      if (!allowedOrigins.includes(`http://${trimmed}`)) allowedOrigins.push(`http://${trimmed}`);
-    } else if (!allowedOrigins.includes(trimmed)) {
-      allowedOrigins.push(trimmed);
+  process.env.APP_URL.split(',').forEach(addOrigin);
+}
+
+function isOriginAllowed(origin) {
+  if (!origin) return true;
+  if (allowedOrigins.has(origin)) return true;
+  try {
+    const { hostname, protocol } = new URL(origin);
+    if ((protocol === 'http:' || protocol === 'https:') && (hostname === 'localhost' || hostname === '127.0.0.1')) {
+      return true;
     }
+    if (protocol === 'https:' && hostname.endsWith('.onrender.com') && hostname.includes('adse')) {
+      return true;
+    }
+  } catch {
+    // invalid URL format
   }
+  return false;
 }
 
 const corsOptions = {
   origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
+    if (isOriginAllowed(origin)) {
       return callback(null, true);
     }
     return callback(null, false);
   },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin', 'X-Requested-With'],
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
